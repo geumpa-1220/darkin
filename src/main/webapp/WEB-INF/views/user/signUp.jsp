@@ -30,7 +30,7 @@
             background-color:rgba(255, 255, 255, 0.03); /* 반투명 흰색 */
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 4px 4px 8px rgba(0, 123, 255, 0.5); /* 파란색 음영 */
+            box-shadow: -4px -4px 8px rgba(0, 123, 255, 0.5); /* 파란색 음영 */
             max-width: 700px;
             margin: 2rem auto;
             width: 100%;
