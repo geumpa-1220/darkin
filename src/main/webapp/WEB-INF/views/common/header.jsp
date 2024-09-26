@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
 	/* 기본 스타일 */
 	body {
@@ -17,7 +17,7 @@
 	    position: sticky;
 	    top: 0;
 	    width: 100%;
-	    box-shadow: 0 0 8px rgba(0, 123, 255, 90);
+	    box-shadow: 0 0 8px rgba(255,255, 255,1);  
 	    z-index: 1000;
 	}
 
@@ -52,6 +52,7 @@
 	    letter-spacing: 2px;
 	    text-decoration: none;
 	    font-weight: bold;
+		text-shadow: 0 0 10px rgba(0, 123, 255, 1);
 	}
 
 	/* 로그인/로그아웃 버튼 영역 */
@@ -63,33 +64,37 @@
 	div a {
 	    margin-left: 15px;
 	}
+	.menu{
+		text-shadow: 0 0 10px rgba(243, 156, 18, 1); /* #f39c12 컬러 음영 적용 */
+		
+	}
 </style>
 
 <header>
     <nav>
         <c:choose>
-            <c:when test="${ not empty sessionScope.id }">
-                <div>
+            <c:when test="${ not empty sessionScope.username }">
+                <div class="menu">
                     <a href="/community/board">COMMNITY</a>
                     <a href="/community/message">CHAT</a>
                 </div>
                 <div>
                     <h1><a href="/">  DARK IN  </a></h1>
                 </div>
-                <div>
+                <div class="menu">
                     <a href="/user/profile">${ sessionScope.username}님</a>
                     <a href="/logout">LOG OUT</a>
                 </div>
             </c:when>
             <c:otherwise>
-                <div>
+                <div class="menu">
                     <a href="/user/login">COMMNITY</a>
                     <a href="/user/login">CHAT</a>
                 </div>
                 <div>
                     <h1><a href="/">DARK IN</a></h1>
                 </div>
-                <div>
+                <div class="menu">
                     <a href="/user/login">Login</a>
                     <a href="/user/signUp">Sign Up</a>
                 </div>

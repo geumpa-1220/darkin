@@ -9,7 +9,7 @@
     <title>Sign Up</title>
     <style>
         * {
-            margin: 0;
+            margin: 1px;
             padding: 0;
             box-sizing: border-box;
         }
@@ -21,27 +21,33 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+			background-image: url('/background.png'); /* 배경 이미지 경로 */
+			background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
+	        background-position: center; /* 이미지의 위치를 가운데로 설정 */
+	    	background-repeat: no-repeat; /* 이미지 반복 방지 */
+		    background-attachment: fixed; /* 스크롤 시 배경 고정 */
         }
 
         /* 전체 페이지 레이아웃 */
         .container {
 			display: flex;
 			justify-content: center; 
-            background-color:rgba(255, 255, 255, 0.03); /* 반투명 흰색 */
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: -4px -4px 8px rgba(0, 123, 255, 0.5); /* 파란색 음영 */
             max-width: 700px;
             margin: 2rem auto;
             width: 100%;
 			
-			backdrop-filter: blur(10px); /* 유리 같은 흐림 효과 */
+			background-color:rgba(255, 255, 255, 0.1); /* 반투명 흰색 */
+			backdrop-filter: blur(3px); /* 유리 같은 흐림 효과 */
+			border-radius: 10px;
+			box-shadow: 0 0 8px rgba(255,255, 255,1);  ; /* 흰색 음영 */
+			padding: 2rem;
 			border: 1px solid rgba(255, 255, 255, 0.3); /* 얇은 반투명 테두리 */
         }
 
         h2 {
             text-align: center;
-            color: #f4f4f4;
+            color: #000;
+			text-shadow: 0 0 10px rgba(0, 123, 255, 90); /* 글자에 그림자 추가 */	  
         }
 
         form {
@@ -55,7 +61,8 @@
         label {
             margin-bottom: 0.5rem;
             font-weight: bold;
-            color: white;
+            color: #000;
+			text-shadow: 0 0 10px rgba(0, 123, 255, 90); /* 글자에 그림자 추가 */	  
         }
 
         input {
@@ -109,7 +116,17 @@
             text-decoration: underline;
         }
 
-      
+		/* 반응형 디자인 추가 */
+		       @media (max-width: 600px) {
+		           .container {
+		               padding: 1rem;
+		               max-width: 90%;
+		           }
+
+		           form {
+		               max-width: 100%;
+		           }
+		       }
     </style>
 </head>
 <body>
@@ -120,7 +137,7 @@
     <!-- 메인 컨텐츠 -->
     <div class="container">
         
-        <form action="/user/signup" method="post">
+        <form action="/user/signUp" method="post">
 			<h2>Sign Up</h2>
 			
             <label for="username">Username</label>
@@ -130,7 +147,7 @@
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="pwd" placeholder="Enter your password" required>
 
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
@@ -140,7 +157,7 @@
     </div>
     
     <div class="form-footer">
-        <p>Already have an account? <a href="/user/login">Login here</a></p>
+        <p>이미 계정이 있으신가요? <a href="/user/login">Login here</a></p>
     </div>
 
 </body>

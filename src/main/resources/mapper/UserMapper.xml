@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mapper namespace="com.example.demo.mapper.UserMapper">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.darkin.mapper.UserMapper">
 
-<insert>
-
+<insert id="signUp" parameterType="com.example.darkin.dto.UserDto">
+    insert into user
+    (username , email , pwd)
+    values (#{username} , #{email} , #{pwd})
 </insert>
+
+<select id="loginOrProfile" resultType="com.example.darkin.dto.UserDto">
+    select * from user
+    where username = #{ username }
+</select>
 
 </mapper>
