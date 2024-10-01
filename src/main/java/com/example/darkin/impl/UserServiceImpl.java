@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
 		if(dto != null && dto.getPwd().equals( userDto.getPwd() ) )
 		{
 			session.setAttribute("username", dto.getUsername());
+			session.setAttribute("id", dto.getId());
 			
 			return "/index/main";
 		}
@@ -53,7 +54,27 @@ public class UserServiceImpl implements UserService {
 		return "/user/profile";
 	}
 
+	
+	@Override
+	public String update(UserDto userDto , HttpSession session)
+	{
+		Integer id=(Integer)session.getAttribute("id");
+		userDto.setId(id);
+		userMapper.update(userDto);
+		return "redirect:/user/profile";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -64,7 +64,7 @@
 	div a {
 	    margin-left: 15px;
 	}
-	.menu{
+	.menu a{
 		text-shadow: 0 0 10px rgba(243, 156, 18, 1); /* #f39c12 컬러 음영 적용 */
 		
 	}
@@ -75,27 +75,23 @@
         <c:choose>
             <c:when test="${ not empty sessionScope.username }">
                 <div class="menu">
-                    <a href="/community/board">COMMNITY</a>
-                    <a href="/community/message">CHAT</a>
-                </div>
+					<a href="/">  DARK IN  </a>
+				</div>
                 <div>
-                    <h1><a href="/">  DARK IN  </a></h1>
+                    <h1><a href="/user/profile">${ sessionScope.username}님</a></h1>
                 </div>
                 <div class="menu">
-                    <a href="/user/profile">${ sessionScope.username}님</a>
                     <a href="/logout">LOG OUT</a>
                 </div>
             </c:when>
             <c:otherwise>
                 <div class="menu">
-                    <a href="/user/login">COMMNITY</a>
-                    <a href="/user/login">CHAT</a>
+                    <a href="/user/login">Login</a>
                 </div>
                 <div>
                     <h1><a href="/">DARK IN</a></h1>
                 </div>
                 <div class="menu">
-                    <a href="/user/login">Login</a>
                     <a href="/user/signUp">Sign Up</a>
                 </div>
             </c:otherwise>

@@ -60,7 +60,19 @@ public class UserController {
 	{
 		return userService.profile(model , session);
 	}
-    	
+    
+	
+	@GetMapping("/user/editProfile")
+	public String update(Model model , HttpSession session)
+	{
+		userService.profile(model,session);
+		return "/user/editProfile";
+	}
+	@PostMapping("/user/editProfile")
+	public String update(UserDto userDto , HttpSession session)
+	{
+		return userService.update(userDto ,  session);
+	}
 	
 	
 

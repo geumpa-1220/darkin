@@ -13,4 +13,10 @@
     where username = #{ username }
 </select>
 
+<update id="update" parameterType="com.example.darkin.dto.UserDto">
+    update user set 
+    username = #{username} , email = #{email} ,bio = #{bio}
+    where id = #{id}
+</update>
+
 </mapper>

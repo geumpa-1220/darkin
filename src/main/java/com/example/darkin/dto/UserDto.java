@@ -3,7 +3,7 @@ package com.example.darkin.dto;
 import java.sql.Timestamp;
 
 public class UserDto {
-	private int id,age;
+	private Integer id;
 	private String username,email,pwd,bio;
 	private Timestamp signday;
 
@@ -38,12 +38,7 @@ public class UserDto {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
+	
 	public String getBio() {
 		return bio;
 	}

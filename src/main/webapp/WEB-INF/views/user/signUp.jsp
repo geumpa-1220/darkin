@@ -36,7 +36,7 @@
             margin: 2rem auto;
             width: 100%;
 			
-			background-color:rgba(255, 255, 255, 0.1); /* 반투명 흰색 */
+			background-color:rgba(255, 255, 255, 0.05); /* 반투명 흰색 */
 			backdrop-filter: blur(3px); /* 유리 같은 흐림 효과 */
 			border-radius: 10px;
 			box-shadow: 0 0 8px rgba(255,255, 255,1);  ; /* 흰색 음영 */

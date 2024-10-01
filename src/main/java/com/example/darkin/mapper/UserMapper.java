@@ -9,6 +9,6 @@ public interface UserMapper {
 	
 	public void signUp(UserDto userDto);
 	public UserDto loginOrProfile(String username);
-	
+	public void update(UserDto userDto);
 
 }

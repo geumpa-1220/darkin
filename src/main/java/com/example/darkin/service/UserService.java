@@ -11,5 +11,6 @@ public interface UserService {
 	public String signUp(UserDto userDto);
 	public String login(UserDto userDto , HttpSession session , Model model);
 	public String profile(Model model , HttpSession session);
+	public String update(UserDto userDto , HttpSession session);
 
 }

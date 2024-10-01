@@ -65,7 +65,7 @@
 			text-shadow: 0 0 10px rgba(0, 123, 255, 90); /* 글자에 그림자 추가 */	  
         }
 
-        input {
+        input , textarea{
             padding: 0.75rem;
             margin-bottom: 1.25rem;
             border: 1px solid #ddd;
@@ -122,21 +122,17 @@
     <!-- 메인 컨텐츠 -->
     <div class="container">
         
-        <form action="/user/update" method="post">
+        <form action="/user/editProfile" method="post">
 			<h2>신분증 편집</h2>
 			
             <label for="username">닉네임</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <input type="text" id="username" name="username" value="${user.username}" required>
 
-            <label for="email">정신 연령</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
+            <label for="email">이미일</label>
+            <input type="email" id="email" name="email" value="${user.email}" required>
       
-			<label for="email">정신 연령</label>
-			<input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-			<label for="email">자기소개</label>
-			<input type="email" id="email" name="email" placeholder="Enter your email" required>
+			<label for="bio">자기소개</label>
+			<textarea id="bio" name="bio" rows="5" cols="40" required>${user.bio}</textarea>
 
             <button type="submit">저장</button>
         </form>
