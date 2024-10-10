@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
+    <title>Home</title>
     <style>
         /* 기존 스타일 그대로 유지 */
         * {
@@ -29,16 +29,16 @@
         .container {
             display: flex;
             justify-content:space-around;;
-			flex-direction: ;
             align-items: center;
             height: 100vh;
 			margin:5px;
+			flex-wrap: wrap; /* 한 줄에 두 개씩 배치되도록 설정 */
         }
 
-		.community-box, .chat-box {
+		.first, .second {
 		    position: relative;
 		    width: 45%;
-		    height: 60%;
+		    height: 45%;
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
@@ -55,7 +55,7 @@
 
 		}
 
-		.community-box::before, .chat-box::before {
+		.first::before, .second::before {
 		    content: '';
 		    position: absolute;
 		    top: 0;
@@ -71,12 +71,12 @@
 		    z-index: -1; /* 배경을 텍스트 뒤로 배치 */
 		}
 
-		.community-box:hover, .chat-box:hover {
+		.first:hover, .second:hover {
 		    transform: scale(1.05); /* 호버 시 요소가 5% 확대됨 */
 		    transition: transform 0.3s ease, opacity 0.3s ease; /* 애니메이션 효과 추가 */
 		}
 
-		.community-box:hover::before, .chat-box:hover::before {
+		.first:hover::before, .second:hover::before {
 		    opacity: 0.7; /* 호버 시 배경 투명도 변화 */
 		}
 
@@ -88,7 +88,7 @@
 		    z-index: 1; /* 텍스트가 배경보다 위에 위치 */
 		    position: relative; /* z-index가 적용되도록 설정 */
 		}
-		.community-box p{
+		.first p{
 			text-shadow: 0 0 10px rgba(243, 156, 18, 1); /* #f39c12 컬러 음영 적용 */
 		}
     </style>
@@ -102,20 +102,32 @@
  <div class="container">
 	<c:choose>
 	    <c:when test="${ not empty sessionScope.username }">
-			<div class="community-box" onclick="location.href='/community/board'">
-			    <p>커뮤니티로 이동</p>
+			<div class="first" onclick="location.href='/community/questionList'">
+			    <p>커뮤니티 계시판</p>
 			</div>
-			<div class="chat-box" onclick="location.href='/chat/chat'">
-			    <p>채팅으로 이동</p>
+			<div class="first" onclick="location.href='/chat/koreaChat'">
+				<p>전국 채팅</p>
+			</div>
+			<div class="second" onclick="location.href='/chat/chat'">
+			    <p>매칭</p>
+			</div>
+			<div class="second" onclick="location.href='/chat/chat'">
+				<p>그룹 채팅</p>
 			</div>
 		</c:when>
 		
 		<c:otherwise>
-			<div class="community-box" onclick="location.href='/user/login'">
-			    <p>커뮤니티로 이동</p>
+			<div class="first" onclick="location.href='/user/login'">
+			    <p>커뮤니티 계시판</p>
 			</div>
-			<div class="chat-box" onclick="location.href='/user/login'">
-			    <p>채팅으로 이동<p>
+			<div class="first" onclick="location.href='/user/login'">
+			    <p>전국 채팅<p>
+			</div>
+			<div class="second" onclick="location.href='/user/login'">
+			    <p>매칭</p>
+			</div>
+			<div class="second" onclick="location.href='/user/login'">
+			    <p>그룹 채팅</p>
 			</div>
 		</c:otherwise>
 	</c:choose>	

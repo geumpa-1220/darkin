@@ -2,7 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.darkin.mapper.BoardMapper">
 
+<select id="questionList" resultType="com.example.darkin.dto.QuestionDto">
+    select * from question
+</select>
 
+<insert id="insertQuestion" parameterType="com.example.darkin.dto.QuestionDto">
+     insert into question
+     (questionTitle , questionContent , questionUser)
+     values (#{questionTitle} , #{questionContent} , #{questionUser})
+</insert>
 
+<select id="questionBoard" >
+      select * from question
+      where id=#{id}
+</select>
 
+<insert id="writeAnswer" parameterType="com.example.darkin.dto.AnswerDto">
+     insert into answer
+     (qid,answerContent , answerUser)
+     values(#{qid} , #{answerContent} , #{answerUser})
+</insert>
+
+<select id="answerList" resultType="com.example.darkin.dto.AnswerDto">
+     select * from answer
+     where qid=${id}
+</select>
 </mapper>
