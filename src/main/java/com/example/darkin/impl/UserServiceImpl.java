@@ -1,5 +1,7 @@
 package com.example.darkin.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -64,6 +66,12 @@ public class UserServiceImpl implements UserService {
 		return "redirect:/user/profile";
 	}
 	
+	
+	@Override
+	public List<UserDto> matching(int age)
+	{
+		return userMapper.matching(age);
+	}
 }
 
 

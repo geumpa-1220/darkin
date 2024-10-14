@@ -102,45 +102,45 @@
  <div class="container">
 	<c:choose>
 	    <c:when test="${ not empty sessionScope.username }">
-			<div class="first" onclick="location.href='/community/questionList'">
-			    <p>커뮤니티 계시판</p>
+			<div class="first" onclick="location.href='/chat/matching?age='+10">
+			    <p>10대</p>
 			</div>
-			<div class="second" onclick="location.href='/chat/allChat'">
-				<p>전국 채팅</p>
+			<div class="second" onclick="location.href='/chat/matching?age='+20">
+				<p>20대</p>
 			</div>
-			<div class="second" onclick="location.href='/chat/choice'">
-			    <p>1:1 매칭</p>
+			<div class="second" onclick="location.href='/chat/matching?age='+30">
+			    <p>30대</p>
 			</div>
-			<div class="first" onclick="location.href='/chat/chat'">
-				<p>그룹 찾기</p>
+			<div class="first" onclick="location.href='/chat/matching?age='+40">
+				<p>40대</p>
 			</div>
-			<div class="first" onclick="location.href='/chat/myMate'">
-			    <p>운명의 인연</p>
+			<div class="first" onclick="location.href='/chat/matching?age='+50">
+			    <p>50대</p>
 			</div>
-			<div class="second" onclick="location.href='/user/login'">
-			    <p>나의 그룹<p>
+			<div class="second" onclick="location.href='/chat/matching?age='+60">
+			    <p>60대<p>
 			</div>
 
 		</c:when>
 		
 		<c:otherwise>
 			<div class="first" onclick="location.href='/user/login'">
-			    <p>커뮤니티 계시판</p>
+			    <p>10대</p>
 			</div>
 			<div class="second" onclick="location.href='/user/login'">
-				<p>전국 채팅</p>
+				<p>20대</p>
 			</div>
 			<div class="second" onclick="location.href='/user/login'">
-			    <p>1:1 매칭</p>
+			    <p>30대</p>
 			</div>
 			<div class="first" onclick="location.href='/user/login'">
-				<p>그룹 찾기</p>
+				<p>40대</p>
 			</div>
 			<div class="first" onclick="location.href='/user/login'">
-			    <p>운명의 인연</p>
+			    <p>50대</p>
 			</div>
 			<div class="second" onclick="location.href='/user/login'">
-			    <p>나의 그룹<p>
+			    <p>60대<p>
 			</div>
 		</c:otherwise>
 	</c:choose>	
