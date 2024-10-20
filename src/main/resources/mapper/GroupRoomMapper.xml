@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.darkin.mapper.GroupRoomMapper">
+
+<select id="allGroupList" parameterType="com.example.darkin.dto.GroupRoomDto">
+     select * from groupRoom
+</select>
+
+<select id="myRooms" parameterType="com.example.darkin.dto.GroupRoomDto">
+    select * from groupRoom
+    where users = #{user}
+</select>
+
+<select id="checkGroup">
+    select count(*)
+    from groupMember
+    where user = #{user}
+</select>
+
+<select id="getGroupForUser" resultType="com.example.darkin.dto.GroupRoomDto">
+    select gr.*
+    from groupRoom gr
+    inner join groupMember gm on gr.id = gm.roomId
+    where gm.user = #{user}
+</select>
+
+<insert id="insertAndGetGroupRoom" parameterType="com.example.darkin.dto.GroupRoomDto" useGeneratedKeys="true" keyProperty="id">
+    insert into groupRoom
+    (title , users , bio)
+    values ( #{title} , #{users} , #{bio})
+</insert>
+
+<select id="selectMember" parameterType="com.example.darkin.dto.GroupMemberDto">
+    select count(*)
+    from groupMember
+    where roomId = #{roomId}
+    and user = #{user}
+</select>
+
+<insert id="insertMember" parameterType="com.example.darkin.dto.GroupMemberDto">
+    insert into groupMember
+    (roomId,user)
+    values( #{roomId} , #{user} )
+</insert>
+
+<select id="selectMembers" resultType="com.example.darkin.dto.GroupMemberDto">
+    select user from groupMember
+    where roomId = #{roomId}
+</select>
+
+<select id="nowGroup" resultType="com.example.darkin.dto.GroupRoomDto">
+    select * from grouproom
+    where id = #{roomId}
+</select>
+
+
+<insert id="insertAndGetMessage" parameterType="com.example.darkin.dto.GroupMessageDto" useGeneratedKeys="true" keyProperty="id">
+    insert into groupMessages
+    (roomId,user,content)
+    values ( #{roomId} , #{user} , #{content} )
+</insert>
+
+<select id="selectMessageById" parameterType="int" resultType="com.example.darkin.dto.GroupMessageDto">
+    select * from groupMessages
+    where id = #{id}
+</select>
+
+<select id="selectByRoomId" parameterType="com.example.darkin.dto.GroupMessageDto">
+     select * from groupMessages
+     where roomId = #{roomId}
+</select>
+
+</mapper>
+
+
+
+

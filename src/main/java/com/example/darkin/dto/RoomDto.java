@@ -2,7 +2,7 @@ package com.example.darkin.dto;
 
 public class RoomDto {
 	private int id;
-	private String user,mate;
+	private String sender,mate;
 	
 	public int getId() {
 		return id;
@@ -10,11 +10,11 @@ public class RoomDto {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUser() {
-		return user;
+	public String getSender() {
+		return sender;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
 	public String getMate() {
 		return mate;

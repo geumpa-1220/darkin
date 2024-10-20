@@ -2,10 +2,11 @@ package com.example.darkin.dto;
 
 import java.sql.Timestamp;
 
-public class MyMateDto {
-	private int id,roomId;
-	private String type,sender,mate,content;
+public class GroupMessageDto {
+	private int id , roomId;
+	private String user,content;
 	private Timestamp sentTime;
+	
 	
 	public int getId() {
 		return id;
@@ -13,34 +14,17 @@ public class MyMateDto {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 	public int getRoomId() {
 		return roomId;
 	}
 	public void setRoomId(int roomId) {
 		this.roomId = roomId;
 	}
-	
-	
-	public String getType() {
-		return type;
+	public String getUser() {
+		return user;
 	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getSender() {
-		return sender;
-	}
-	public void setSender(String sender) {
-		this.sender = sender;
-	}
-	
-	public String getMate() {
-		return mate;
-	}
-	public void setMate(String mate) {
-		this.mate = mate;
+	public void setUser(String user) {
+		this.user = user;
 	}
 	public String getContent() {
 		return content;
@@ -55,9 +39,6 @@ public class MyMateDto {
 		this.sentTime = sentTime;
 	}
 	
-		
-	}
-	
 	
 
-
+}

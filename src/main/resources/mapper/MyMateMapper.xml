@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.darkin.mapper.MyMateMapper">
+
+    <select id="selectRoom" resultType="com.example.darkin.dto.RoomDto">
+       SELECT * FROM materoom
+       WHERE sender = #{userName} AND mate = #{mateName}
+       
+    </select>
+    
+    <insert id="insertSenderRoom">
+        insert into materoom
+        (sender , mate)
+        values (#{userName} , #{mateName})
+    </insert>
+    
+    <select id="selectMateRoom" resultType="com.example.darkin.dto.RoomDto">
+        select * from materoom
+        where sender = #{mate} and mate = #{user}
+    </select>
+    
+    <insert id="insertMateRoom">
+        insert into materoom
+        (sender , mate)
+        values (#{mateName} , #{userName})
+    </insert>
+
+    <select id="roomList" resultType="com.example.darkin.dto.RoomDto">
+        select * from materoom
+        where sender = #{user}
+    </select>
+
+    <select id="selectMessages" resultType="com.example.darkin.dto.MyMateDto">
+        select * from myMate
+        where (sender = #{user} and mate = #{mate})
+        or (sender = #{mate} and mate = #{user})
+    
+    </select>
+    
+    <insert id="insertMessage" parameterType="com.example.darkin.dto.MyMateDto">
+        insert into myMate
+        (roomId , sender ,mate , content)
+        values ( #{roomId} , #{sender}, #{mate} , #{content})
+    </insert>
+
+</mapper>

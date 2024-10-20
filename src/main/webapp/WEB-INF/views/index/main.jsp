@@ -111,14 +111,14 @@
 			<div class="second" onclick="location.href='/chat/choice'">
 			    <p>1:1 매칭</p>
 			</div>
-			<div class="first" onclick="location.href='/chat/chat'">
+			<div class="first" onclick="location.href='/chat/allGroupList'">
 				<p>그룹 찾기</p>
 			</div>
-			<div class="first" onclick="location.href='/chat/myMate'">
+			<div class="first" onclick="location.href='/chat/myRooms'">
 			    <p>운명의 인연</p>
 			</div>
-			<div class="second" onclick="location.href='/user/login'">
-			    <p>나의 그룹<p>
+			<div class="second" onclick="location.href='/chat/myGroup'">
+			    <p>소속된 그룹<p>
 			</div>
 
 		</c:when>
@@ -140,7 +140,7 @@
 			    <p>운명의 인연</p>
 			</div>
 			<div class="second" onclick="location.href='/user/login'">
-			    <p>나의 그룹<p>
+			    <p>소속된 그룹<p>
 			</div>
 		</c:otherwise>
 	</c:choose>	
